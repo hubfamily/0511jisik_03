@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.converter-section {
+    margin-bottom: 2rem;
+}
+
+#conversionType {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.conversion-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    gap: 0.5rem;
+}
+
+input[type="number"], select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="number"] {
+    width: 60%;
+}
+
+select {
+    width: 40%;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.favorites-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.favorites-list {
+    margin-bottom: 1rem;
+}
+
+.favorite-item {
+    @apply bg-gray-50 p-4 rounded-lg shadow-sm flex justify-between items-center gap-4 transition duration-200 hover:bg-gray-100;
+}
+
+.favorite-item span {
+    @apply text-gray-700 flex-1;
+}
+
+.favorite-item button {
+    @apply bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200 flex items-center gap-2;
+}
+
+.favorite-item button::before {
+    content: '×';
+    @apply text-lg font-bold;
+}
+
+#addToFavorites {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+#addToFavorites:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .conversion-inputs {
+        grid-template-columns: 1fr;
+    }
+    
+    .arrow svg {
+        transform: rotate(90deg);
+    }
+}
+
+input:focus, select:focus {
+    @apply outline-none ring-2 ring-indigo-500 border-indigo-500;
+}
+
+select option:hover {
+    @apply bg-indigo-100;
+}
+
+.favorites-list {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6366f1 #e5e7eb;
+}
+
+.favorites-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.favorites-list::-webkit-scrollbar-track {
+    @apply bg-gray-200 rounded-full;
+}
+
+.favorites-list::-webkit-scrollbar-thumb {
+    @apply bg-indigo-500 rounded-full;
+}
+
+input::placeholder {
+    @apply text-gray-400;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.favorites-list > div {
+    animation: fadeIn 0.3s ease-out;
+}
